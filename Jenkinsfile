@@ -4,6 +4,7 @@ pipeline {
         stage('Say hello') {
             steps {
                 sh "echo 'hello world'"
+                sh 'java Main.java'
             }
         }
     }
