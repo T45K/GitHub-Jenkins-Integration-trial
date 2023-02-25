@@ -1,11 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage('Say hello') {
+        stage('Test') {
             steps {
-                sh "echo 'hello world'"
-                sh 'java Main.java'
+                sh './mvnw clean test'
             }
         }
+    }
+
+    post {
+        jacoco execPattern: 'target/jacoco', classPattern: 'target/classes', sourcePattern: 'src/main/java', exclusivePattern: 'src/test*'
     }
 }
