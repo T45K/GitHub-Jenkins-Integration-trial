@@ -9,6 +9,8 @@ pipeline {
     }
 
     post {
-        jacoco execPattern: 'target/jacoco', classPattern: 'target/classes', sourcePattern: 'src/main/java', exclusivePattern: 'src/test*'
+        success {
+            jacoco execPattern: 'target/jacoco', classPattern: 'target/classes', sourcePattern: 'src/main/java', exclusivePattern: 'src/test*'
+        }
     }
 }
